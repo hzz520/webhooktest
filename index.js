@@ -17,7 +17,7 @@ handler.on('error', function (err) {
 })
 
 handler.on('push', function (event) {
-  console.log(event.payload.repository.name, 'Received a push event for %s to %s',
+  console.log(JSON.stringify(event.payload.repository), 'Received a push event for %s to %s',
     event.payload.repository.name,
     event.payload.ref)
   rumCommand('sh', ['./deployed.sh', ], function (txt) {
