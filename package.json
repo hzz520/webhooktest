@@ -1,0 +1,23 @@
+{
+  "name": "webhooktest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hzz520/webhooktest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hzz520/webhooktest/issues"
+  },
+  "homepage": "https://github.com/hzz520/webhooktest#readme",
+  "dependencies": {
+    "github-webhook-handler": "^1.0.0",
+    "http": "0.0.0"
+  }
+}
