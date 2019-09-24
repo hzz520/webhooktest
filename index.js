@@ -11,7 +11,7 @@ function getHandler(path) {
 var handler = http.createServer(function (req, res) {
     console.log(req.url)
     if (/^\/pushCode/.test(req.url)) {
-      var handler1 = getHandler(req.url)
+      handler1 = getHandler(req.url)
 
       handler1(req, res, function (err) {
         res.statusCode = 404;
@@ -23,11 +23,11 @@ var handler = http.createServer(function (req, res) {
     }
 }).listen(8900)
 
-handler.on('error', function (err) {
+handler1.on('error', function (err) {
     console.error('Error:', err.message)
   })
   
-handler.on('push', function (event) {
+handler1.on('push', function (event) {
     console.log('Received a push event for %s to %s',
       event.payload.repository.name,
       event.payload.ref)
