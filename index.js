@@ -11,10 +11,12 @@ function getHandler(path) {
 http.createServer(function (req, res) {
     console.log(req.url)
     if (/^\/pushCode/.test(req.url)) {
-      handler = getHandler(req.url)(req, res, function (err) {
+      handler = getHandler(req.url)
+
+      handler((req, res, function (err) {
         res.statusCode = 404;
         res.end('no such location')
-      })
+      }))
 
       handler.on('error', function (err) {
         console.error('Error:', err.message)
