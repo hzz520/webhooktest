@@ -9,7 +9,7 @@ function getHandler(path) {
     })
 }
 var handler = http.createServer(function (req, res) {
-    // console.log(req.url)
+    console.log(req.url)
     if (/^\/pushCode/.test(req.url)) {
       var handler = getHandler(req.url)
 
