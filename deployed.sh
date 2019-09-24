@@ -1,8 +1,6 @@
 #!/bin/bash
 cd /test/git/$1
 
-echo "$1"
-
 if [! ls './.git'];then
     echo 'no'
     chmod -R 777 './'
