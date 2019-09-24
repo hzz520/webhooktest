@@ -1,5 +1,7 @@
 #!/bin/bash
-cd /front/docs/
+cd /test/git/
+
+echo $1
 
 if [! -f './webhooktest/.git'];then
     chmod -R 777 './'
@@ -7,3 +9,6 @@ if [! -f './webhooktest/.git'];then
 else
     git pull origin master
 fi
+
+cnpm i
+pm2 restart 
