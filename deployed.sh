@@ -1,9 +1,7 @@
 #!/bin/bash
-cd /test/git/
+cd /test/git/$1
 
-echo $1
-
-if [! -f './webhooktest/.git'];then
+if [! ls './$1/.git'];then
     chmod -R 777 './'
     git clone git@github.com:hzz520/webhooktest.git
 else
