@@ -8,8 +8,7 @@ function getHandler(path) {
         secret: '1h2z3z2325076'
     })
 }
-var handler = http.createServer(function (req, res) {
-    console.log(req.url)
+http.createServer(function (req, res) {
     if (/^\/pushCode/.test(req.url)) {
       var handler1 = getHandler(req.url)
     
