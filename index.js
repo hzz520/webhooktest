@@ -13,10 +13,10 @@ http.createServer(function (req, res) {
     if (/^\/pushCode/.test(req.url)) {
       handler = getHandler(req.url)
 
-      handler((req, res, function (err) {
+      handler(req, res, function (err) {
         res.statusCode = 404;
         res.end('no such location')
-      }))
+      })
     } else {
         res.statusCode = 404;
         res.end('no such location')
