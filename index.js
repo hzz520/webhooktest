@@ -11,9 +11,9 @@ function getHandler(path) {
 var handler = http.createServer(function (req, res) {
     console.log(req.url)
     if (/^\/pushCode/.test(req.url)) {
-      var handler = getHandler(req.url)
+      var handler1 = getHandler(req.url)
 
-      handler(req, res, function (err) {
+      handler1(req, res, function (err) {
         res.statusCode = 404;
         res.end('no such location')
       })
