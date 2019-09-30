@@ -8,6 +8,18 @@ function getHandler(path) {
         secret: '1h2z3z2325076'
     })
 }
+
+function rumCommand(cmd, args, callback) {
+    var child = spawn(cmd, args)
+    var response = ''
+    child.stdout.on('data', function (buffer) {
+        response += buffer.toString()
+    })
+    child.stdout.on('end', function () {
+        callback(response)
+    })
+}
+
 http.createServer(function (req, res) {
     if (/^\/pushCode/.test(req.url)) {
         var handler1 = getHandler(req.url)
@@ -28,17 +40,6 @@ http.createServer(function (req, res) {
                 console.log(txt)
             })
         })
-        
-        function rumCommand(cmd, args, callback) {
-            var child = spawn(cmd, args)
-            var response = ''
-            child.stdout.on('data', function (buffer) {
-                response += buffer.toString()
-            })
-            child.stdout.on('end', function () {
-                callback(response)
-            })
-        }
     } else {
         rumCommand('sh', ['./deployed.sh', event.payload.repository.name], function (txt) {
             console.log(txt)
