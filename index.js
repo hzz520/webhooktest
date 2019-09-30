@@ -12,10 +12,14 @@ function getHandler(path) {
 function rumCommand(cmd, args, callback) {
     console.log(args, callback)
     var child = spawn(cmd, args)
+    
     var response = ''
     child.stdout.on('data', function (buffer) {
         response += buffer.toString()
     })
+    child.stdout.on('error', function (error) {
+      console.log('error', error)
+    }
     child.stdout.on('end', function () {
         callback(response)
     })
