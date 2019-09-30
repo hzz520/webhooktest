@@ -9,7 +9,7 @@ else
     git pull origin master
 fi
 
-if [ -d /test/git/$1/deployed.sh ]
+if [ -d "/test/git/$1/deployed.sh" ]
    chmod +x "/test/git/$1/deployed.sh"
 fi
 
