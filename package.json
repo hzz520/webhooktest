@@ -18,6 +18,7 @@
   "homepage": "https://github.com/hzz520/webhooktest#readme",
   "dependencies": {
     "github-webhook-handler": "^1.0.0",
-    "http": "0.0.0"
+    "http": "0.0.0",
+    "shelljs": "^0.8.3"
   }
 }

@@ -1,27 +1,13 @@
 var http = require('http')
-var spawn = require('child_process').spawn
+var { 
+    exec
+ } = require('shelljs')
 var createHandler = require('github-webhook-handler')
 
 function getHandler(path) {
     return createHandler({
         path: path,
         secret: '1h2z3z2325076'
-    })
-}
-
-function rumCommand(cmd, args, callback) {
-    console.log(args, callback)
-    var child = spawn(cmd, args)
-    
-    var response = ''
-    child.stdout.on('data', function (buffer) {
-        response += buffer.toString()
-    })
-    child.stdout.on('error', function (error) {
-      console.log('error', error)
-    })
-    child.stdout.on('end', function () {
-        callback(response)
     })
 }
 
@@ -42,14 +28,10 @@ http.createServer(function (req, res) {
             console.log('Received a push event for %s to %s',
             event.payload.repository.name,
             event.payload.ref)
-            rumCommand('sh', ['./deployed.sh', event.payload.repository.name], function (txt) {
-                console.log(txt)
-            })
+            exec(`./deployed.sh ${event.payload.repository.name}`)
         })
     } else {
-        rumCommand('sh', ['./deployed.sh', event.payload.repository.name], function (txt) {
-            console.log(txt)
-        })
+        exec(`./deployed.sh ${event.payload.repository.name}`)
         res.statusCode = 404;
         res.end('no such location')
     }
