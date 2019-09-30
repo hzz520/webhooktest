@@ -1,4 +1,5 @@
 #!/bin/bash
+echo '$1'
 cd /test/git/$1
 
 if [! ls './.git'];then
