@@ -11,7 +11,7 @@ fi
 
 cnpm i
 
-if [ $1 === 'webhooktest' ]; then
+if [ $1 == 'webhooktest' ]; then
    pm2 restart 'pushCode' 
    pm2 log 'pushCode'
 else
