@@ -26,7 +26,7 @@ function rumCommand(cmd, args, callback) {
 }
 
 http.createServer(function (req, res) {
-    console.log(666)
+
     if (/^\/pushCode/.test(req.url)) {
         var handler1 = getHandler(req.url)
     
