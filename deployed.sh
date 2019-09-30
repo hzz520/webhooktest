@@ -9,10 +9,6 @@ else
     git pull origin master
 fi
 
-if [ -d "/test/git/$1/deployed.sh" ]
-   chmod +x "/test/git/$1/deployed.sh"
-fi
-
 cnpm i
 
 if [ $1 == 'webhooktest' ]; then
