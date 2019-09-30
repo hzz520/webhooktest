@@ -19,7 +19,7 @@ function rumCommand(cmd, args, callback) {
     })
     child.stdout.on('error', function (error) {
       console.log('error', error)
-    }
+    })
     child.stdout.on('end', function () {
         callback(response)
     })
