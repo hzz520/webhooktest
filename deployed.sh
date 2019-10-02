@@ -19,4 +19,5 @@ elif [ -f "/opt/$1/bin/start.sh" ]
     cnpm i
     chmod +x "./bin/start.sh"
     ./bin/start.sh
+else
 fi
