@@ -28,11 +28,11 @@ http.createServer(function (req, res) {
             console.log('Received a push event for %s to %s',
             event.payload.repository.name,
             event.payload.ref)
-            exec(`chmod +x ./deployed.sh`)
+            exec(`chmod +x '/opt/webhooktest/deployed.sh'`)
             exec(`/opt/webhooktest/deployed.sh ${event.payload.repository.name}`)
         })
     } else {
-        exec(`chmod +x ./deployed.sh`)
+        exec(`chmod +x "/opt/webhooktest/deployed.sh"`)
         exec(`/opt/webhooktest/deployed.sh ${event.payload.repository.name}`)
         res.statusCode = 404;
         res.end('no such location')
