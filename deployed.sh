@@ -17,6 +17,6 @@ if [ $1 == 'webhooktest' ];then
 elif [ -f /opt/$1/bin/start.sh ]
     cd /opt/$1
     cnpm i
-    chown +x ./bin/start.sh
+    chmod +x ./bin/start.sh
     ./bin/start.sh
 fi
