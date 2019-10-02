@@ -6,7 +6,7 @@ if [ ! -d /opt/$1 ];then
     chmod -R 777 './'
 else
     cd /opt/$1
-    git pull origin master
+    git pull
 fi
 
 if [ $1 == 'webhooktest' ];then
