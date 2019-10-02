@@ -1,20 +1,22 @@
 #!/bin/sh
-echo $1
-cd /test/git/$1
 
-if [ ! -d /test/git/$1 ];then
+if [ ! -d /opt/$1 ];then
+    cd /opt
     git clone git@github.com:hzz520/$1.git
     chmod -R 777 './'
 else
+    cd /opt/$1
     git pull origin master
 fi
 
-cnpm i
-
-if [ $1 == 'webhooktest' ]; then
-   pm2 restart 'pushCode' 
-   pm2 log 'pushCode'
-else
-    pm2 restart $1
-    pm2 log $1
+if [ $1 == 'webhooktest' ];then
+    cd /opt/$1
+    cnpm i
+    pm2 restart 'pushCode' 
+    pm2 log 'pushCode'
+elif [ -f /opt/$1/bin/start.sh ]
+    cd /opt/$1
+    cnpm i
+    chown +x ./bin/start.sh
+    ./bin/start.sh
 fi
