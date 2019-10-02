@@ -14,7 +14,7 @@ if [ $1 == 'webhooktest' ];then
     cnpm i
     pm2 restart 'pushCode' 
     pm2 log 'pushCode'
-elif [ -f "/opt/$1/bin/start.sh" ]
+elif [ -f "/opt/$1/bin/start.sh" ];then
     cd /opt/$1
     cnpm i
     chmod +x "./bin/start.sh"
